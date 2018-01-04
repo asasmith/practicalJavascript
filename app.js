@@ -27,8 +27,8 @@ todos: [],
   },
   toggleCompleted: function(position) {
     let index = position - 1 //gets actual array index 
-    let todo = this.todos[index]
-    todo.completed = !todo.completed
+    let todo = this.todos[index] 
+    todo.completed = !todo.completed //if todo.completed = true, set value to false. if false, set to true
     this.display()
   },
   delete: function(position) {
