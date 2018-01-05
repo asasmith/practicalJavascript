@@ -1,17 +1,25 @@
 console.log('hello world')
 
-// todoList.addTodo should add objects
-// // todoList.changeTodo should change the todoText property
-// // todoList.toggleCompleted should change the completed property
-//
+// display should show todoText
+// display should tell you if todos is empty
+// display should show completed
+
 const todoList = {
    
-todos: [],
+  todos: [],
   display: function() {
+    if(this.todos.length === 0) {
+      console.log('you don\'t have any todos')
+    } else {
     console.log('Todos:')
     for(let i = 0; i < this.todos.length; i++) {
-      console.log(this.todos[i].todoText, this.todos[i].completed)
+      if(this.todos[i].completed) {
+        console.log('[x] ' + this.todos[i].todoText)
+        } else {
+          console.log('[ ] ' + this.todos[i].todoText)
         }
+      }
+    }
   },
   add: function(todoText) {
     this.todos.push({
