@@ -1,7 +1,6 @@
-console.log('hello world')
-
-// toggleAll if everything is true, make everthing false
-// toggleAll otherwise make everything true
+// there should be a 'Display Todos' button and a 'Toggle All' button
+// clicking 'Display Todos' should run todoList.display()
+// clicking 'Toggle All' should run todoList.toggleAll()
 
 const todoList = {
    
@@ -68,3 +67,12 @@ const todoList = {
     this.display()
   }
 }
+
+var displayBtn = document.getElementById('displayBtn')
+displayBtn.addEventListener('click', function() {
+  todoList.display()
+})
+const toggleAllBtn = document.getElementById('toggleAllBtn')
+toggleAllBtn.addEventListener('click', function() {
+  todoList.toggleAll()
+})
