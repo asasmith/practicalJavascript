@@ -1,8 +1,7 @@
 console.log('hello world')
 
-// display should show todoText
-// display should tell you if todos is empty
-// display should show completed
+// toggleAll if everything is true, make everthing false
+// toggleAll otherwise make everything true
 
 const todoList = {
    
@@ -37,6 +36,30 @@ const todoList = {
     let index = position - 1 //gets actual array index 
     let todo = this.todos[index] 
     todo.completed = !todo.completed //if todo.completed = true, set value to false. if false, set to true
+    this.display()
+  },
+  toggleAll: function() {
+    let totalTodos = this.todos.length
+    let completedTodos = 0
+    for(let i = 0; i < this.todos.length; i++) {
+      if(this.todos[i].completed) {
+        completedTodos += 1
+      }
+    }
+    // if everything is true, make everything false
+
+    if(completedTodos === totalTodos) {
+      for(let i = 0; i < this.todos.length; i++) {
+        this.todos[i].completed = false
+      }
+    } else {
+      for(let i = 0; i < this.todos.length; i++) {
+        this.todos[i].completed = true
+      }
+    }
+
+    // otherwise make everything true
+    console.log(completedTodos)
     this.display()
   },
   delete: function(position) {
