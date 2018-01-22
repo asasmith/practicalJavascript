@@ -8,7 +8,35 @@
   </head>
   <body>  
     <h1>Todos</h1>
-    <button id='displayBtn'>Display Todos</button>
-    <button id='toggleAllBtn'>Toggle Complete</button>
+
+    <button onclick='handlers.displayTodos()'>Display Todos</button>
+    <button onclick='handlers.toggleAll()'>Toggle Complete</button>
+
+    <div>
+      <label>Add Todo</label>
+      <input type='text' id='add-todo-input'> 
+      <button onclick='handlers.addTodo()'>Add</button>
+    </div>
+
+    <div>
+      <label>Edit Todo</label>
+      <input type='number' id='edit-todo-position'>
+      <input type='text' id='edited-todo-input'>
+      <button onclick='handlers.editTodo()'>Edit</button>
+      <label for='editTodo'>
+    </div>
+
+    <div>
+      <label>Delete  Todo</label>
+      <input type='number' id='delete-todo-position'>
+      <button onclick='handlers.deleteTodo()'>Delete</button>
+    </div>
+
+    <div>
+      <label>Completed</label>
+      <input type='number' id='toggle-completed-todo-position'>
+      <button onclick='handlers.toggleCompleted()'>Toggle Completed</button>
+    </div>
+
     <script type='text/javascript' src='app.js'></script>
   </body>

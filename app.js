@@ -68,11 +68,32 @@ const todoList = {
   }
 }
 
-var displayBtn = document.getElementById('displayBtn')
-displayBtn.addEventListener('click', function() {
-  todoList.display()
-})
-const toggleAllBtn = document.getElementById('toggleAllBtn')
-toggleAllBtn.addEventListener('click', function() {
-  todoList.toggleAll()
-})
+// change buttons to use onclick attr
+
+const handlers = {
+  addTodo: function() {
+    let addTodoInput = document.getElementById('add-todo-input')
+    todoList.add(addTodoInput.value)
+    addTodoInput.value = '' // clear value
+  },
+  editTodo: function() {
+    let todoIndexPosition = document.getElementById('edit-todo-position')
+    let editedTodoInput = document.getElementById('edited-todo-input')
+    todoList.edit(todoIndexPosition.valueAsNumber, editedTodoInput.value)
+    todoIndexPosition.value = '' // clear value
+    editedTodoInput.value = '' // clear value 
+  },
+  deleteTodo: function() {
+    let todoIndexPosition = document.getElementById('delete-todo-position')
+    todoList.delete(todoIndexPosition.valueAsNumber)
+    todoIndexPosition.value = ''
+  },
+  toggleCompleted: function() {
+    let todoIndexPosition = document.getElementById('toggle-completed-todo-position')
+    todoList.toggleCompleted(todoIndexPosition.valueAsNumber)
+    todoIndexPosition.value = ''
+  },
+  toggleAll: function () {
+    todoList.toggleAll()
+  }
+}
