@@ -44,8 +44,7 @@ const todoList = {
     console.log(completedTodos)
   },
   delete: function(position) {
-    let index = position -1 // gets actual array index
-    this.todos.splice(index, 1)
+    this.todos.splice(position, 1)
   }
 }
 
@@ -66,10 +65,8 @@ const handlers = {
     editedTodoInput.value = '' // clear value 
     views.display()
   },
-  deleteTodo: function() {
-    let todoIndexPosition = document.getElementById('delete-todo-position')
-    todoList.delete(todoIndexPosition.valueAsNumber)
-    todoIndexPosition.value = ''
+  deleteTodo: function(position) {
+    todoList.delete(position)
     views.display()
   },
   toggleCompleted: function() {
@@ -94,12 +91,36 @@ const views = {
       let todo = todoList.todos[i]
       let todoText = ''
       if(todo.completed === false) {
-        todoText = `( ) ${todo.todoText }`
+        todoText = `( ) ${todo.todoText}`
       } else {
-        todoText = `(x) ${todo.todoText }`
+        todoText = `(x) ${todo.todoText}`
       }
       li.textContent = todoText
+      li.id = i
+      li.appendChild(this.createDeleteButton())
       ul.appendChild(li)
     }
+  },
+  createDeleteButton: function() {
+    let button = document.createElement('button')
+    button.textContent = 'delete'
+    button.classList.add('delete-button')
+    return button
+  },
+  setUpEventListeners: function() {
+    const todosUl = document.querySelector('ul')
+
+    todosUl.addEventListener('click', function(event) {
+      let arrIndex = event.target.parentNode.id
+      //get element clicked
+      let element = event.target
+
+      if(event.target.className === 'delete-button') {
+        //run handlers.deleteTodo()
+        handlers.deleteTodo(arrIndex)
+      }
+    }) 
   }
 }
+
+views.setUpEventListeners()
