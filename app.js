@@ -1,9 +1,4 @@
-// there should be a 'Display Todos' button and a 'Toggle All' button
-// clicking 'Display Todos' should run todoList.display()
-// clicking 'Toggle All' should run todoList.toggleAll()
-
 const todoList = {
-   
   todos: [],
   add: function(todoText) {
     this.todos.push({
@@ -23,25 +18,30 @@ const todoList = {
   toggleAll: function() {
     let totalTodos = this.todos.length
     let completedTodos = 0
-    for(let i = 0; i < this.todos.length; i++) {
-      if(this.todos[i].completed) {
+
+    // remove this for loop
+    //for(let i = 0; i < this.todos.length; i++) {
+    //  if(this.todos[i].completed) {
+    //    completedTodos += 1
+    //  }
+    //}
+    
+    this.todos.forEach(function(todo) {
+      if(todo.completed) {
         completedTodos += 1
       }
-    }
-    // if everything is true, make everything false
+    })
 
-    if(completedTodos === totalTodos) {
-      for(let i = 0; i < this.todos.length; i++) {
-        this.todos[i].completed = false
+    this.todos.forEach(function(todo) {
+      // if everything is true, make everything false
+      if(completedTodos === totalTodos) {
+        todo.completed = false
+      // otherwise make everything true
+      } else {
+        todo.completed = true
       }
-    } else {
-      for(let i = 0; i < this.todos.length; i++) {
-        this.todos[i].completed = true
-      }
-    }
-
-    // otherwise make everything true
-    console.log(completedTodos)
+    })
+    
   },
   delete: function(position) {
     this.todos.splice(position, 1)
@@ -70,7 +70,6 @@ const handlers = {
     views.display()
   },
   toggleCompleted: function() {
-    debugger;
     let todoIndexPosition = document.getElementById('toggle-completed-todo-position')
     todoList.toggleCompleted(todoIndexPosition.valueAsNumber)
     todoIndexPosition.value = ''
@@ -86,9 +85,24 @@ const views = {
   display: function() {
     let ul = document.getElementById('todo-list')
     ul.innerHTML = ''
-    for(let i = 0; i < todoList.todos.length; i++) {
+/*    for(let i = 0; i < todoList.todos.length; i++) {*/
+      //let li = document.createElement('li')
+      //let todo = todoList.todos[i]
+      //let todoText = ''
+      //if(todo.completed === false) {
+        //todoText = `( ) ${todo.todoText}`
+      //} else {
+        //todoText = `(x) ${todo.todoText}`
+      //}
+      //li.textContent = todoText
+      //li.id = i
+      //li.appendChild(this.createDeleteButton())
+      //ul.appendChild(li)
+    /*}*/
+
+    todoList.todos.forEach(function(todo,index) {
       let li = document.createElement('li')
-      let todo = todoList.todos[i]
+      //let todo = todos
       let todoText = ''
       if(todo.completed === false) {
         todoText = `( ) ${todo.todoText}`
@@ -96,10 +110,10 @@ const views = {
         todoText = `(x) ${todo.todoText}`
       }
       li.textContent = todoText
-      li.id = i
+      li.id = index
       li.appendChild(this.createDeleteButton())
       ul.appendChild(li)
-    }
+    }, this)
   },
   createDeleteButton: function() {
     let button = document.createElement('button')
