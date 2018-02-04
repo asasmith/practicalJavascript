@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const browserSync = require('browser-sync')
 
 gulp.task('watch', ['browserSync'], function () {
-  gulp.watch('*.js', browserSync.reload)
+  gulp.watch('src/*.js', browserSync.reload)
   gulp.watch('*.html', browserSync.reload)
 })
 
