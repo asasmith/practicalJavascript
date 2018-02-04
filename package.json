@@ -4,12 +4,17 @@
   "description": "vanilla js todo app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "npm run lint && nyc ava",
+    "lint": "standard | snazzy"
+    },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ava": "^0.25.0",
     "browser-sync": "^2.23.2",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "nyc": "^11.4.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
   }
 }
