@@ -5,3 +5,8 @@ import todoList from '../src/todoList'
 test('todoList.todoList returns an object', t => {
   t.true(typeof todoList.todoList === 'object')
 })
+
+// check that todoList.add is a function
+test('todoList.todoList.add returns a function', t => {
+  t.true(typeof todoList.todoList.add === 'function')
+})
