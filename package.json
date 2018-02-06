@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "vanilla js todo app",
   "main": "app.js",
+  "ava": {
+    "verbose": "true"
+  },
   "scripts": {
     "test": "npm run lint && nyc ava",
     "lint": "standard | snazzy"
