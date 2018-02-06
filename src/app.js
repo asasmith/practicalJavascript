@@ -1,54 +1,56 @@
-const todoList = {
-  todos: [],
-  add: function (todoText) {
-    this.todos.push({
-      todoText: todoText,
-      completed: false
-    })
-  },
-  edit: function (position, todoText) {
-    let index = position - 1 // gets actual array index
-    this.todos[index].todoText = todoText
-  },
-  toggleCompleted: function (position) {
-    let index = position - 1 // gets actual array index
-    let todo = this.todos[index]
-    todo.completed = !todo.completed // if todo.completed = true, set value to false. if false, set to true
-  },
-  toggleAll: function () {
-    let totalTodos = this.todos.length
-    let completedTodos = 0
+/*
+  const todoList = {
+    todos: [],
+    add: function (todoText) {
+      this.todos.push({
+        todoText: todoText,
+        completed: false
+      })
+    },
+    edit: function (position, todoText) {
+      let index = position - 1 // gets actual array index
+      this.todos[index].todoText = todoText
+    },
+    toggleCompleted: function (position) {
+      let index = position - 1 // gets actual array index
+      let todo = this.todos[index]
+      todo.completed = !todo.completed // if todo.completed = true, set value to false. if false, set to true
+    },
+    toggleAll: function () {
+      let totalTodos = this.todos.length
+      let completedTodos = 0
 
-    // remove this for loop
-    // for(let i = 0; i < this.todos.length; i++) {
-    //  if(this.todos[i].completed) {
-    //    completedTodos += 1
-    //  }
-    // }
+  // remove this for loop
+  // for(let i = 0; i < this.todos.length; i++) {
+  //  if(this.todos[i].completed) {
+  //    completedTodos += 1
+  //  }
+  // }
 
-    this.todos.forEach(function (todo) {
-      if (todo.completed) {
-        completedTodos += 1
-      }
-    })
+      this.todos.forEach(function (todo) {
+        if (todo.completed) {
+          completedTodos += 1
+        }
+      })
 
-    this.todos.forEach(function (todo) {
-      // if everything is true, make everything false
-      if (completedTodos === totalTodos) {
-        todo.completed = false
-      // otherwise make everything true
-      } else {
-        todo.completed = true
-      }
-    })
-  },
-  delete: function (position) {
-    this.todos.splice(position, 1)
+      this.todos.forEach(function (todo) {
+  // if everything is true, make everything false
+        if (completedTodos === totalTodos) {
+          todo.completed = false
+  // otherwise make everything true
+        } else {
+          todo.completed = true
+        }
+      })
+    },
+    delete: function (position) {
+      this.todos.splice(position, 1)
+    }
   }
-}
-
 // change buttons to use onclick attr
+//
 
+/*
 const handlers = {
   addTodo: function () {
     let addTodoInput = document.getElementById('add-todo-input')
@@ -99,7 +101,7 @@ const views = {
       ul.appendChild(li)
     }
 */
-
+/*
     todoList.todos.forEach(function (todo, index) {
       let li = document.createElement('li')
       // let todo = todos
@@ -137,3 +139,4 @@ const views = {
 }
 
 views.setUpEventListeners()
+*/
