@@ -10,10 +10,15 @@ const todoList = {
   },
   // delete todos
   delete: function (position) {
-    this.todos.splice(position, 1)
+    this.todos.splice(position)
+    return this.todos
+  },
+  // edit todos
+  edit: function (position, todoText) {
+    // let index = position - 1 // gets actual array index
+    this.todos[position].todoText = todoText
     return this.todos
   }
-  // edit todos
   // toggle completed
   // toggle all
 }
