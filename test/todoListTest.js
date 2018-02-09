@@ -31,8 +31,19 @@ test('todoList.edit(0, "edited") edits the first todo item', t => {
   t.deepEqual(todoList.edit(0, 'edited'), [{todoText: 'edited', isComplete: false}, {todoText: 'test two', isComplete: false}])
 })
 
-test('todoList(0, "edited") edits the second todo item', t => {
+test('todoList.edit(0, "edited") edits the second todo item', t => {
   t.deepEqual(todoList.edit(1, 'edited too'), [{todoText: 'edited', isComplete: false}, {todoText: 'edited too', isComplete: false}])
+})
+
+// test toggleComplete
+test('todoList.toggleComplete(0)', t => {
+  t.is(todoList.toggleComplete(0), true)
+  t.log(todoList.todos[0].isComplete)
+})
+
+test('todoList.toggleComplete(0)', t => {
+  t.is(todoList.toggleComplete(0), false)
+  t.log(todoList.todos[0].isComplete)
 })
 
 // test delete function

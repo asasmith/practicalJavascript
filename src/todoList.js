@@ -18,8 +18,13 @@ const todoList = {
     // let index = position - 1 // gets actual array index
     this.todos[position].todoText = todoText
     return this.todos
-  }
+  },
   // toggle completed
+  toggleComplete: function (position) {
+    let todo = this.todos[position]
+    todo.isComplete = !todo.isComplete // if todo.completed = true, set value to false. if false, set to true
+    return this.todos[position].isComplete
+  }
   // toggle all
 }
 
