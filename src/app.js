@@ -50,7 +50,6 @@
 // change buttons to use onclick attr
 //
 
-/*
 const handlers = {
   addTodo: function () {
     let addTodoInput = document.getElementById('add-todo-input')
